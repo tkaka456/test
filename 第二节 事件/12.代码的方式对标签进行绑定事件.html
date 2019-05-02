@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="tm">
+        呜哈哈呜哈哈呜哈哈大陆哈
+    </div>
+
+    <script>
+        //第一步拿到要绑定事件的div
+
+        var d = document.querySelector('#tm'); //id选择器
+        d.onclick = function() {
+                //在事件响应方法 this就指向当前的时间原对象
+                alert(this.innerHTML);
+            }
+            // d.onclick = function() {
+            //     console.log(1);
+            // }
+
+        //这种绑定事件的方法 只能绑定一个方法 第二个会替换掉第一个
+    </script>
+</body>
+
+</html>

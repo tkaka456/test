@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a id='Linkyoutube' href="http://youtube.ca">Youtube</a>
+
+    <script>
+        var Linkyoutube = document.getElementById('Linkyoutube');
+        Linkyoutube.onclick = function(e) {
+            e = e || window.event;
+            if (e.preventDefault) {
+                e.preventDefault();
+            } else {
+                e.returnValue = false; //兼容ie8
+            }
+            return false; //返回值给一个false 非常有用 可以没有
+        };
+    </script>
+
+</body>
+
+</html>

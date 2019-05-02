@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="w1"></p>
+    <!--p#w1  #是id的意思 -->
+
+    <p id="p1">段落1</p>
+    <p id="p2">段落2</p>
+    <p id="p3">段落3</p>
+    <!-- p#p${段落$}*3 $符号默认数字从1开始排列 -->
+
+
+    <div class="" id="d1">div</div>
+    <script>
+        //根绝标签的id的值在文档中搜索标签
+        var elementP = document.getElementById('p2');
+        console.log(elementP);
+        //elementP->HTMLParagraphElement->HTMLElement(所有HTMl的标签的基类接口) -> Element->
+        //Node ->EventTarget ->object -> null
+        //接口：有自己规定的方法属性 但必须有字类给她实现 element, Node
+        //类型：可以直接创建实例 比如 Number类型
+    </script>
+</body>
+
+</html>

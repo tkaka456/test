@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="cityList">
+        <li>北京1</li>
+        <li>北京2</li>
+        <li>北京3</li>
+        <li>北京4</li>
+        <li>北京5</li>
+    </ul>
+
+    <script>
+        //给所有的li标签绑定点击事件 并弹出li标签的内容
+
+
+        var liNodeList = document.querySelectorAll('#cityList li');
+
+        // liNodeList.forEach(function(element, index) {
+        //     element.onclick = function() {
+        //         alert(this.innerHTML);
+        //     };
+        //     //因为li标签的响应方法都是一样的 没有必要 每次循环都创建一个函数对象
+        // })；
+
+        liNodeList.forEach(function(element, index) {
+            //直接将元素的时间相应方法指向一个声明的函数
+            element.onclick = liOnClickHander; //优化 减少了内存消耗 公用一个函数
+        });
+
+        //li标签点击时出发执行的时间响应方式
+
+        function liOnClickHander() {
+            alert(this.innerHTML);
+        }
+    </script>
+</body>
+
+</html>

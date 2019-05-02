@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value='点击按钮' id="btnClick">
+    <input type="button" value='解除绑定按钮' id="btnRemove">
+
+    <script>
+        var btnClick = document.querySelector('#btnClick');
+        var btnRemove = document.querySelector('#btnRemove');
+
+        //DOM绑定事件
+        btnClick.onclick = function() {
+            alert('DOM0 级点击事件');
+        };
+
+        //DOM2 级绑定事件
+        btnRemove.addEventListener('click', function() {
+            //给btnClick按钮的DOM0级事件解绑
+            btnClick.onclick = null;
+            //DOM 2级 事件绑定和解绑
+            btnClick.removeEventListener('click', btnClickHander);
+        });
+
+
+
+        btnClick.addEventListener('click', btnClickHander);
+
+
+        //时间处理程序
+        function btnClickHander() {
+            alert('DOM2级的绑定事件');
+        }; //不能用匿名函数 只能这样 添加和解绑 指向同一个函数
+    </script>
+
+
+
+</body>
+
+</html>

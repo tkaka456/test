@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="http://youtube.ca">
+        用户名：<input type="text" id='txtName'>
+        <hr>
+        <input type="submit" value='提交' id='btnSub'>
+    </form>
+    <script>
+        window.onbeforeunload = function() {
+            return '您是否要离开?'; //返回一个字符串，浏览器在跳转其他页面或者关闭的时候
+            //会提醒
+        };
+
+        // var btnSub = document.getElementById('btnSub');
+        // var txtName = document.getElementById('txtName');
+        // //dom0绑定事件
+        // btnSub.onclick = function(e) {
+        //     //取消默认操作（在dom0级中）可以使用return false；
+        //     //判断用户名的文本框是否为空
+        //     if (!txtName.value) {
+        //         alert('用户名不能空！')
+        //         return false;
+        //     }
+        // };
+        //所有浏览器都支持 但只能在dom0中使用
+
+        //dom2级
+        if (btnSub.addEventListener) {
+            btnSub.addEventListener('click', btnSubClickHander, false);
+        } else {
+            btnSub.attachEvent('onclick', btnSubClickHander);
+        }
+
+        function btnSubClickHander(e) {
+            e = e || window.event;
+            if (!txtName.value) {
+                alert('用户名不能空！')
+                    //取消默认操作，取消表单提交
+                if (e.preventDefault) {
+                    e.preventDefault(); //标准浏览器阻止默认行为
+                } else {
+                    e.returnValue = false; //ie8
+                }
+            }
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>

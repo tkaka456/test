@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        border: 1px solid saddlebrown;
+        height: 200px;
+        width: 200px;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class='parent' id='pDiv'>
+        <input type="button" value='点击' id="btn">
+
+    </div>
+
+
+    <script>
+        var btn = document.getElementById('btn');
+
+        //阻止事件冒泡
+        btn.onclick = function(e) { //dom0级都是 冒泡
+            alert('btn');
+
+            e = e || window.event;
+            //判断是否是点自己
+            // if (e.target === this) { 标准浏览器
+            //     e.stopProgation();
+            // }
+            //if (e.target === this || e.srcElement === this) { 可写 可不写
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            } else {
+                e.cancleBubble = false;
+            }
+            //}
+        };
+
+        //div的绑定点击事件
+        var pDiv = document.getElementById('pDiv');
+        pDiv.onclick = function(e) {
+            alert('div');
+        }
+    </script>
+
+</body>
+
+</html>

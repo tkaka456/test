@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/documentReady.js"></script>
+    <script src="../js/EventUtil.js"></script>
+</head>
+
+<body>
+    <input type="button" value="点击" id="btn">
+    <script>
+        (function() {
+            document.myReady(function() {
+                var btn = document.getElementById('btn');
+                EventUtil.addEvent(btn, 'click', function(e) {
+                    console.log(e);
+                    console.log(this == btn);
+                })
+
+            })
+        })();
+    </script>
+</body>
+
+</html>

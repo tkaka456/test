@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="d1" class='ts' laoma="sss">
+        <span>你好</span>
+        <p>哼哼唧唧sss</p>
+    </div>
+
+
+
+    <script>
+        //获取id = d1的div标签
+        var d1 = document.getElementById('d1');
+        //d1 HTMLDivElement HTMLElement Element
+
+        console.log(d1.attributes);
+        //d1.attributes[0];
+        d1.attributes.item(0);
+
+        d1.setAttribute("laoma", "123");
+        console.log(d1.getAttribute("class"));
+        //d1.classname
+        //d1.id
+        //di.innerHTML 拿到div里的全部
+        //d1.tagname 拿到到 d1的标签div
+
+        //删除属性
+        d1.removeAttribute('laoma');
+    </script>
+</body>
+
+</html>

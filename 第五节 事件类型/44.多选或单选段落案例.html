@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p.Box p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pBox" id="pBox">
+        <p>我是段落1</p>
+        <p>我是段落2</p>
+        <p>我是段落3</p>
+        <p>我是段落4</p>
+        <p>我是段落5</p>
+
+    </div>
+
+    <script>
+        (function() {
+            window.onload = function() {
+                //拿到所有标签
+                var pBox = document.getElementById('pBox');
+                //获取所有p标签 pList是一个伪数组
+                var pList = pBox.getElementsByTagName('p');
+
+                for (var i = 0; i < pList.length; i++) {
+                    pList[i].onclick = pClickHandler;
+                }
+            };
+
+            function pClickHandler(e) {
+                e = e || window.event;
+                if (e.ctrlKey) {
+                    //多选
+                    this.style.backgroundColor = 'silver'
+                } else {
+                    //单选
+                    var pBox = document.getElementById('pBox');
+
+                    var pList = pBox.getElementsByTagName('p');
+
+                    for (var i = 0; i < pList.length; i++) {
+                        pList[i].style.backgroundColor = '#fff';
+                    }
+                    this.style.backgroundColor = 'silver';
+                }
+
+            }
+        })();
+    </script>
+</body>
+
+</html>
