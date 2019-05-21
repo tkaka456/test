@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #msgBox {
+            border: 1px solid #aaa;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        
+        #msgCloseBtn {
+            width: 32.5px;
+            height: 20px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: url(./close2.jpg);
+            background-size: 100%;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../js/documentReady.js"></script>
+    <script src="../js/EventUtil.js"></script>
+</head>
+
+<body>
+    <div id="msgBox">
+        <div id="msgCloseBtn"></div>
+    </div>
+
+    <script>
+        (function() {
+            document.myReady(function() {
+                var msgCloseBtn = document.getElementById('msgCloseBtn');
+                EventUtil.addEvent(msgCloseBtn, 'click', function(e) {
+                    //this == msgCloseBtn
+                    this.parentNode.style.display = 'none';
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

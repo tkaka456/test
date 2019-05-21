@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/documentReady.js"></script>
+    <script src="../js/EventUtil.js"></script>
+</head>
+
+<body>
+    <ul id="menu">
+
+    </ul>
+
+    <script>
+        (function() {
+
+            //数据 假设数据从后台通过ajax获取
+            var data = [{
+                name: '首页',
+                url: 'http://www.youtube.ca',
+                id: 1
+            }, {
+                name: '关于',
+                url: '/about.html',
+                id: 2
+            }, {
+                name: '产品',
+                url: '/product.html',
+                id: 3
+            }, {
+                name: '案例',
+                url: '/ysecase.html',
+                id: 4
+            }, {
+                name: '联系',
+                url: '/contact.html',
+                id: 5
+            }, ];
+            //页面加载完成后动态加载li标签数据
+            document.myReady(function() {
+                loadMenu(); //初始化菜单数据
+
+                //初始化事件绑定
+
+                //提前做一些数据处理
+
+            });
+            //加载数据菜单
+            function loadMenu() {
+                //动态创建li标签
+                // {name: '首页',url: '/index.html', id: 1} =>
+                //<li id="menu1"><a href="/index.html">首页</a></li>
+                for (var i = 0; i < data.length; i++) {
+                    //给li设置节点
+                    var liElement = document.createElement('li');
+                    //给li设置属性
+                    liElement.setAttribute('id', 'menu' + data[i].id); //推荐大家使用
+
+                    //创建id属性节点 不推荐使用
+                    //var liIdAttrNode = document.createAttribute('id');
+                    //给属性节点设置属性值
+                    //liIdAttrNode.nodeValue = 'menu' + data[i].id;
+                    //吧属性节点跟标签联系起来
+                    //liElement.setAttributeNode(liIdAttrNode);
+
+                    //创建a标签节点
+                    var menuLinkElement = document.createElement('a');
+                    menuLinkElement.setAttribute('href', data[i].url); //所有浏览器都兼容
+                    //menuLinkElement.innerHTML = data[i].name;
+                    if (menuLinkElement.textContent) {
+                        menuLinkElement.textContent = data[i].name;
+                    } else {
+                        menuLinkElement.innerText = data[i].name; //ie早期版本
+                    }
+
+                    //把a标签添加到li标签
+                    liElement.appendChild(menuLinkElement);
+                    //把li标签添加到ul标签中去
+                    menu.appendChild(liElement);
+
+
+                }
+
+            }
+
+        })();
+    </script>
+</body>
+
+</html>

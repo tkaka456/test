@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    //兼容一下 标准浏览器和ie浏览器 在文档加载完成后就立即绑定事件
+    //不用等图片加载
+
+    // document.addEventListener('DOMContentLoaded', function(e) {
+    //     //给按钮绑定事件
+    //     var btn = document.getElementById('btn');
+    //     btn.addEventListener('click', function() {
+    //         alert('ok');
+    //     }, false);
+    // }, false);
+
+
+
+    //document.onDOMContentLoaded = function() {}; dom0事件
+
+    //ie8 文档加载完成后就立即绑定dom的事件
+    // document.onreadystaechange = function(e) {
+    //     console.log(document.readyState);
+    //     if (document.readyStates == 'interactive') {
+    //         var btn = document.getElementById('btn');
+    //         btn.onclick = function() {
+    //             alert('ok');
+    //         }
+    //     }
+    // }
+    document.myReady = function(callback) {
+        //封装标准浏览器和ie浏览器
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', callback, false);
+        } else if (document.attachEvent) {
+            document.attachEvent('onreadystatechange', function() {
+                if (document.readyState == 'interactive') {
+                    callback(window.event);
+                };
+            });
+        } else {
+            window.onload = callback;
+        }
+    };
+
+    document.myReady(function(e) {
+        //注册事件
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            alert('ok2');
+        }
+    });
+</script>
+
+<body>
+
+
+    <input type="button" id='btn' value='点击我'>
+
+
+
+</body>
+
+</html>

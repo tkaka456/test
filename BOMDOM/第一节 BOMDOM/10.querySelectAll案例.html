@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>ss1</p>
+    <p class='tm'>ss2</p>
+    <p class='tm'>ss3</p>
+
+
+
+
+
+    <script>
+        //把页面中所有的p标签包含tm样式类的标签选取出来
+        var arr = document.querySelectorAll('p.tm');
+        //arr是一个Nodelist的接口实例
+        console.log(arr);
+
+        //arr 伪数组不会自动更新
+        //arr是一个Nodelist接口的实例 NodeList的原型式Object.prototype
+
+
+        //forEach接受一个函数进行对数组中的元素进行处理 第一个参数是元素
+        //第二个参数是元素索引
+        arr.forEach(function(elem, index) {
+            console.log(index + ':' + elem.innerHTML);
+
+        })
+    </script>
+</body>
+
+</html>

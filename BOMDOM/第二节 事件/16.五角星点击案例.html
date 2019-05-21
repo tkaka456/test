@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        span {
+            font-size: 30px;
+            cursor: pointer;
+            /*鼠标移上去 变手*/
+        }
+    </style>
+
+    <div class='wjx-wrap'>
+        <span>☆</span>
+        <span>☆</span>
+        <span>☆</span>
+        <!--搜狗输入法打五角星-->
+        <span>☆</span>
+        <span>☆</span>
+
+    </div>
+
+    <script>
+        //拿到所有五角星的span的NodeList
+
+        var wjxList = document.querySelectorAll('.wjx-wrap span');
+        //给所有五角星绑定点击事件
+        // wjxList.forEach(function(element, index) {
+        //     element.addEventListener('click', function() {
+        //         //把所有的五角星设置为实心五角星
+        //         wjxList.forEach(function(wjx, index) {
+        //             wjx.innerHTML = '☆';
+        //         });
+        //         //把自己设置成实心五角星
+        //         element.innerHTML = '★';
+        //     });
+        // });
+
+        wjxList.forEach(function(element, index) {
+            element.addEventListener('click', wjxClickHandler);
+        });
+        //五角星 处理程序
+        function wjxClickHandler() {
+            //把所有五角星设置为空心五角星
+            wjxList.forEach(function(wjx, index) {
+                wjx.innerHTML = '☆';
+            });
+            //把自己设置成实心五角星
+            //element.innerHTML = '★';
+            //在事件处理函数的作用域中，this就指向当前注册事件的标签元素
+            this.innerHTML = '★';
+        }
+    </script>
+</body>
+
+</html>

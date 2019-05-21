@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p name='p2'>k1ZM</p>
+    <p name='p1'>k2ZM</p>
+    <p>k3ZM</p>
+    <div name='d1' class="pass1">hi,1</div>
+    <div name='d2' class="pass2">hi,2</div>
+    <div name='d3' class="pass3">hi,3</div>
+
+    <script>
+        //把当前页面中所有的标签都获取出来
+        var all = document.getElementsByTagName('*');
+        //all => HTMLCollection
+        for (var i = 0; i < all.length; i++) {
+            console.log(all[i]);
+        }
+        //all全局标签 all.item[0] 1,2,3,4... = all[0] 1,2,3,4...
+        //all.['viewport]
+        //all.namedItem('0')
+        //all.nameItem['d2'];
+        //all.d2
+    </script>
+</body>
+
+</html>

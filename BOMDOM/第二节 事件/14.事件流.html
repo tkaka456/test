@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        border: 1px solid #ccc;
+    }
+    
+    .parent {
+        height: 200px;
+        width: 200px;
+        padding: 30px;
+        background-color: maroon;
+    }
+    
+    .child {
+        height: 100px;
+        width: 100px;
+        background-color: #90c;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        我是父div标签
+        <div class="child">
+            我是子标签div
+
+        </div>
+
+        <script>
+            var parentDiv = document.querySelector('.parent');
+
+            parentDiv.onclick = function() {
+                alert('父div被点击了')
+            };
+
+            window.onclick = function() {
+                alert('window被执行')
+            }
+        </script>
+    </div>
+</body>
+
+</html>
